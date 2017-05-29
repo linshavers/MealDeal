@@ -1,51 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-
-let imgUrl = 'images/berlin.jpg'
-let styles = {
-  root: {
-    backgroundImage: 'url(' + imgUrl + ')',
-    backgroundSize: 'cover',
-    overflow: 'hidden'
-  }
-}
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Find from './Find.js';
+import Upload from './Upload.js';
 
 
 class App extends Component {
-  constructor(props) {
-      super (props);
-      this.state = ({
-        name: null, 
-        address: null, 
-        distance: null, 
-      });
-    }
 
 
   render() {
 
     return (
       <div className="body">
-        <section style= { styles}> </section>
+        <Router> 
+          <div className="App">
 
-        {/*Logo Button*/}
-        <button className="App-logo-button" onClick= "linkToHomepage()"> 
-            <img src={require('/Users/lindseyshavers/Documents/Launch/MealDeal/webpage/src/Ok.png')}
-            />
-          </button>
-
-
-        {/*Homepage Links to Find/Upload Pages*/}
-        <div className="App">
-          <div className="App-links">
-            <div><button className="App-find-button" onClick= "linkToFindPage()">Find Deals</button></div>
-            <div><button className="App-upload-button" onClick= "linkToFindPage()">Upload Deals</button></div>
+            {/*Logo Button*/}
+            <ul>
+              <li><Link to="/">
+                <button className="App-logo-button" onClick= "linkToHomepage()">
+                  <img src={require('./Ok.png')}/>
+                </button>
+              </Link></li>
+            <ul>
+              {/*Homepage Links to Find/Upload Pages*/}
+              <div className="App-links">
+                <ul>
+                  <div><li><Link to="/Find"><button className="App-find-button" onClick= "linkToFindPage()">Find Deals</button></Link></li></div>
+                  <div><li><Link to="/Upload"><button className="App-upload-button" onClick= "linkToFindPage()">Upload Deals</button></Link></li></div>
+                </ul>
+              </div>
+            </ul>
+            </ul>
+            {/*Routing Paths*/}
+            <Route exact path="/Find" component={Find} />
+            <Route exact path="/Upload" component={Upload} />
           </div>
-
-        </div> 
-      </div> //end of body class
+        </Router>
+      </div> 
 
     );
   }
