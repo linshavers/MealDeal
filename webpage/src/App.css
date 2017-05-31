@@ -65,6 +65,18 @@
   
 }
 
+.place_list_item {
+  text-align: center;
+}
+
+.place-list__item-name {
+  text-align: center;
+}
+
+.place-list_item-address {
+  text-align: center;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
