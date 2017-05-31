@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Find from './Find.js';
 import Upload from './Upload.js';
 import * as firebase from 'firebase';
+import Map from './Map.js';
 
 //configures webpage to firebase database
 var config = {
