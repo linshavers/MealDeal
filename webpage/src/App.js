@@ -18,7 +18,7 @@ class App extends Component {
             {/*Logo Button*/}
             <ul>
               <li><Link to="/">
-                <button className="App-logo-button" onClick= "linkToHomepage()">
+                <button className="App-logo-button">
                   <img src={require('./Ok.png')}/>
                 </button>
               </Link></li>
@@ -26,8 +26,8 @@ class App extends Component {
               {/*Homepage Links to Find/Upload Pages*/}
               <div className="App-links">
                 <ul>
-                  <div><li><Link to="/Find"><button className="App-find-button" onClick= "linkToFindPage()">Find Deals</button></Link></li></div>
-                  <div><li><Link to="/Upload"><button className="App-upload-button" onClick= "linkToFindPage()">Upload Deals</button></Link></li></div>
+                  <div><li><Link to="/Find"><button className="App-find-button">Find Deals</button></Link></li></div>
+                  <div><li><Link to="/Upload"><button className="App-upload-button">Upload Deals</button></Link></li></div>
                 </ul>
               </div>
             </ul>
