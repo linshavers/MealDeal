@@ -1,3 +1,4 @@
+
 .App {
   text-align: left;
   position: relative;
@@ -60,9 +61,47 @@
   opacity: 0.7;
 }
 
-.Find {
-  background: black;
-  
+.Find-main {
+  background: none;
+  text-align: center;
+}
+
+section {
+  color: black;
+  text-align: center;
+}
+
+div {
+  height: 100%;
+}
+
+article {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+}
+
+.container {
+  display: table;
+  width: 100%;
+}
+
+.left-half {
+  background-color: #ff9e2c;
+  position: absolute;
+  left: 0px;
+  width: 50%;
+}
+
+.Find-header {
+  text-align: center,
+}
+
+.Find-restaurant-list {
+  text-align: left;
 }
 
 .place_list_item {
@@ -76,6 +115,20 @@
 .place-list_item-address {
   text-align: center;
 }
+
+.right-half {
+  background-color: #b6701e;
+  position: absolute;
+  right: 0px;
+  width: 50%;
+}
+
+.Find-map{
+  text-align: right;
+  background: black;
+
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
