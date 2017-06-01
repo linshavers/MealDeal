@@ -60,15 +60,77 @@
   opacity: 0.7;
 }
 
-.Find {
-  background: black;
-  
+.Find-main {
+  background: none;
+  text-align: center;
+  color: black;
 }
 
-.uploadForm {
-  background: url(Pizza.jpg) no-repeat center center fixed;
-  text-align: center;
+div {
+  height: 100%;
 }
+
+
+.Find-header {
+  text-align: center;
+  background: none;
+}
+
+.Find-restaurant-container {
+  text-align: center;
+  flex: 1;
+  list-style: none;
+  overflow: auto;
+  margin: 0;
+  background: black;
+  float: left;
+  width: 49%;
+  border: 2px solid white;
+  margin: 0 auto;
+  overflow: hidden;
+  opacity: .7;
+  color: white;
+}
+
+.Find-restaurant-list{
+  flex: 1;
+  text-align: left;
+  list-style: none;
+  overflow: auto;
+  margin: 0;
+  /*color: white;*/
+}
+
+.Find-restaurant_item {
+  display:flex;
+  padding: 8px;
+  justify-content: space-between;
+  color: white;
+}
+
+.Find-restaurant_name {
+  font-size: 16px;
+  padding-bottom: 4px;
+  color: white;
+}
+
+.Find-restaurant_address {
+  font-size: 12px;
+  color: white;
+}
+
+.Find-map-container{
+  flex: 1;
+  text-align: center;
+  background: none;
+  float: right;
+  width: 49%;
+  border: 2px solid white;
+  margin: 0 auto;
+  overflow: hidden;
+
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

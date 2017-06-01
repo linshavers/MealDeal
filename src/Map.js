@@ -1,64 +1,69 @@
 import React, { Component } from 'react';
-import './App.css';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import axios from 'axios';
-import google from  'google-maps';
-//import GoogleMap from './google_map';
+import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
 
+const API_KEY = 'AIzaSyCwQSyhr3MYLRYq35wCsEOqmqsUzcC39_s';
 
-var map; 
-var infoWindow;
+const coords = {
+  lat: 38.0300531,
+  lng: -78.4863596
+};
 
-class Find extends Component {
+const params = { key: API_KEY };
 
-    // initMap() {
-    //     var charlottesville = { lat: 38.0400823, lng: -78.5199934};
+class Map extends Component {
 
-    //     map = new google.maps.Map(document.getElementById('map'), {
-    //         center: charlottesville,
-    //         zoom: 15
-    //     });
+ onMapCreated(map) {
+    map.setOptions({
+      disableDefaultUI: true
+    });
+  }
 
-    //     infoWindow = new google.maps.InfoWindow();
-    // }
+ onDragEnd(e) {
+    console.log('onDragEnd', e);
+  }
 
-    //     var service = new google.maps.places.PlacesService(map);
-    //     service,nearbySearch({
-    //         location: charlottesville, 
-    //         radius: 500, 
-    //         types: ['restaurant'], 
-    //         opennow: true,
-    //     }, this.callback());
-    // }
+ onCloseClick() {
+    console.log('onCloseClick');
+  }
 
-    // callback(results, status) {
-    //     if (status === google.maps.places.PlacesServiceStatus.OK) {
-    //         for (var i = 0; i < results.length; i++) {
-    //             createMarker(results[i]);
-    //         }
-    //     }
-    // }
+ onClick(e) {
+    console.log('onClick', e);
+  }
 
-    // createMarker(place) {
-    //     var placeLoc= place.geometry.location;
-    //     var marker = new google.maps.Marker({
-    //         map: map, 
-    //         position: place.geometry.location
-    //     });
+ render() {
+    return (
+      <Gmaps
+        width={'800px'}
+        height={'600px'}
+        lat={coords.lat}
+        lng={coords.lng}
+        zoom={10}
+        loadingMessage={'Be happy'}
+        params={params}
+        onMapCreated={this.onMapCreated}>
 
-    //     google.maps.event.addListener(marker, 'click', function() {
-    //         infoWindow.setContent(place.name);
-    //         infoWindow.open(map, this);
-    //     });
-    // }
+       <Marker
+          lat={coords.lat}
+          lng={coords.lng}
+          draggable={true}
+          onDragEnd={this.onDragEnd} />
 
+       <InfoWindow
+          lat={coords.lat}
+          lng={coords.lng}
+          content={'Map of Charlottesville'}
+          onCloseClick={this.onCloseClick} />
 
-   render() {
-       return (
-           <div id="map" ref="map"/>)
-   
-        
-    }
-}
+       <Circle
+          lat={coords.lat}
+          lng={coords.lng}
+          radius={500}
+          onClick={this.onClick} />
 
-export default Find;
+     </Gmaps>
+    );
+  }
+
+};
+
+export default Map;

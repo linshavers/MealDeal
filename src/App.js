@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Find from './Find.js';
 import Upload from './Upload.js';
 import Map from './Map.js';
+import * as firebase from 'firebase';
 
 
 class App extends Component {
@@ -23,16 +24,20 @@ class App extends Component {
                   <img src={require('./Ok.png')}/>
                 </button>
               </Link></li>
-            <ul>
+            </ul>
               {/*Homepage Links to Find/Upload Pages*/}
+
+              <Route exact={true} path="/" render={()=>(
               <div className="App-links">
                 <ul>
-                  <div><li><Link to="/Find"><button className="App-find-button">Find Deals</button></Link></li></div>
+                  <div className="Find">
+                    <li><Link to="/Find"><button className="App-find-button">Find Deals</button></Link></li>
+                  </div>
                   <div><li><Link to="/Upload"><button className="App-upload-button">Upload Deals</button></Link></li></div>
                 </ul>
               </div>
-            </ul>
-            </ul>
+              )} />
+           
             {/*Routing Paths*/}
             <Route exact path="/Find" component={Find} />
             <Route exact path="/Upload" component={Upload} />
