@@ -51,7 +51,7 @@ class Map extends Component {
        <InfoWindow
           lat={coords.lat}
           lng={coords.lng}
-          content={'Map of Charlottesville'}
+          content={'Map of Charlottesville! Move the map around to find your restaurants!'}
           onCloseClick={this.onCloseClick} />
 
        <Circle

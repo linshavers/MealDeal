@@ -128,7 +128,31 @@ div {
   border: 2px solid white;
   margin: 0 auto;
   overflow: hidden;
+}
 
+.Thanks {
+  text-align: center;
+  color: black;
+}
+
+.Upload-main {
+  text-align: center;
+  color: black;
+  background: white;
+  opacity: 0.7;
+}
+
+.Upload-text {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  background: white;
+  opacity: 0.7;
+  color:white;
+}
+
+.Upload-name {
+  color: white;
 }
 
 
