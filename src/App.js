@@ -5,7 +5,7 @@ import Find from './Find.js';
 import Upload from './Upload.js';
 import Map from './Map.js';
 import * as firebase from 'firebase';
-
+import Deal from './Deal.js';
 
 class App extends Component {
 

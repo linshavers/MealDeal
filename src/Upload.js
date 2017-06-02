@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import * as firebase from 'firebase';
 
-var index = 0;
+//var index = 0;
 class Upload extends Component {
     constructor(props) {
         super(props);
@@ -16,9 +16,10 @@ class Upload extends Component {
             dealPrice: "",
             dealDescription: "",
             dealList: [],
+            readData: "",
+            index:11
         };
     }
-
 
     handleChange(field, e) {
         this.setState({
@@ -27,25 +28,26 @@ class Upload extends Component {
     }
 
     handleSubmit(e) {
-        const updatedContracts = this.state.dealList.concat([{
+        const updatedDeals = this.state.dealList.concat([{
+            ...this.state,
             restaurantName: this.state.restaurantName,
             dealItem: this.state.dealItem,
             dealPrice: this.state.dealPrice,
             dealDescription: this.state.dealDescription,
-            index: index,
         }])
-        index++;
-        console.log(updatedContracts)
-        this.writeUserData(updatedContracts, index, e);
+       
+        console.log(updatedDeals)
+        this.writeUserData(updatedDeals, this.state.index, e);
 
     }
 
     writeUserData(updatedDeals, index, e) {
-        firebase.database().ref('users/'+index).set({
+        firebase.database().ref('users/'+ this.state.index).set({
             updatedDeals
         });
         e.preventDefault();
     }
+
 
 
 
@@ -62,10 +64,9 @@ class Upload extends Component {
                     <FlatButton label="Submit" onClick={(e) => this.handleSubmit(e)} /><br />
 
 
-                    {this.state.dealDescription}
-                    {this.state.dealItem}
-                    {this.state.dealPrice}
-                    {this.state.restaurantName}
+                    {this.state.readData}
+
+
                 </div>
             </MuiThemeProvider>
 
